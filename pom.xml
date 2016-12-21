@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.microbule</groupId>
+    <artifactId>microbule-container</artifactId>
+    <version>4.0.8.0-SNAPSHOT</version>
+    <name>Microbule Container</name>
+    <packaging>karaf-assembly</packaging>
+
+    <properties>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+
+        <karaf.version>4.0.8</karaf.version>
+        <microbule.version>0.1.1-SNAPSHOT</microbule.version>
+        <!--
+        CXF Settings
+        -->
+        <cxf.context>/services</cxf.context>
+
+    </properties>
+
+    <scm>
+        <url>https://github.com/microbule/microbule-container</url>
+        <connection>scm:git:git@github.com:microbule/microbule.git</connection>
+        <developerConnection>scm:git:git@github.com:microbule/microbule.git</developerConnection>
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>framework</artifactId>
+            <version>${karaf.version}</version>
+            <type>kar</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>spring</artifactId>
+            <classifier>features</classifier>
+            <version>${karaf.version}</version>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>standard</artifactId>
+            <classifier>features</classifier>
+            <version>${karaf.version}</version>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.karaf.features</groupId>
+            <artifactId>enterprise</artifactId>
+            <classifier>features</classifier>
+            <version>${karaf.version}</version>
+            <type>xml</type>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.microbule</groupId>
+            <artifactId>microbule-features</artifactId>
+            <version>${microbule.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+            <scope>runtime</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>karaf-maven-plugin</artifactId>
+                <version>${karaf.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <bootFeatures>
+                        <bootFeature>aries-blueprint</bootFeature>
+                        <bootFeature>bundle</bootFeature>
+                        <bootFeature>config</bootFeature>
+                        <bootFeature>deployer</bootFeature>
+                        <bootFeature>diagnostic</bootFeature>
+                        <bootFeature>feature</bootFeature>
+                        <bootFeature>instance</bootFeature>
+                        <bootFeature>jaas</bootFeature>
+                        <bootFeature>kar</bootFeature>
+                        <bootFeature>log</bootFeature>
+                        <bootFeature>management</bootFeature>
+                        <bootFeature>package</bootFeature>
+                        <bootFeature>service</bootFeature>
+                        <bootFeature>shell</bootFeature>
+                        <bootFeature>shell-compat</bootFeature>
+                        <bootFeature>ssh</bootFeature>
+                        <bootFeature>system</bootFeature>
+                        <bootFeature>wrap</bootFeature>
+                        <bootFeature>scr</bootFeature>
+                        <bootFeature>microbule</bootFeature>
+                    </bootFeatures>
+                </configuration>
+
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
