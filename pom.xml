@@ -10,22 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.microbule</groupId>
     <artifactId>microbule-container</artifactId>
-    <version>4.0.8.0-SNAPSHOT</version>
+    <version>0.1.0.0-SNAPSHOT</version>
     <name>Microbule Container</name>
     <packaging>karaf-assembly</packaging>
 
     <properties>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
 
         <karaf.version>4.0.8</karaf.version>
-        <microbule.version>0.1.1-SNAPSHOT</microbule.version>
-        <!--
-        CXF Settings
-        -->
-        <cxf.context>/services</cxf.context>
+        <microbule.version>0.1.0</microbule.version>
 
     </properties>
 
